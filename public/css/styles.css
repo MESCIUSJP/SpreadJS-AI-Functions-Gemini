@@ -1,0 +1,6 @@
+/* SpreadJSのスタイル */
+#ss {
+  inline-size: 740px;
+  block-size: 390px;
+  border: 1px solid silver;
+}
