@@ -3,7 +3,6 @@ const spreadNS = GC.Spread.Sheets;
 
 // ライセンスキーとカルチャの設定
 //spreadNS.LicenseKey = 'ここにSpreadJSのライセンスキーを設定します';
-spreadNS.LicenseKey = 'GrapeCity-Internal-Use-Only,415589428255757#B1YchcDNNFlRW5GW7Fjc63mM5dnbBJDVwNXSnNDR9lnM0V6MFRHeYlHUthmauZjVLZ5bsVjN5ATNVZjay8UesVlekpFWyg7NhRneWRGZFFGM0V4ZYp4doV5clBlazMXTCdUcmNjUshGdxxGMGVUdEhTcsJzKPl5bCdkY6Jnd9ckbaB7dNBDTttidDNlUoZmSPlVd8NkWUNzbyFWSFlVdDNlZZx4QXxWdzRkMiRGa4o6ZjdVa9E4ZGZVT5UzUBl7bRV7UpdTNzs4Qv2ieRNVSvAFWmdVV9sUeZhmQrEUcsVUWyRFSpNlaGBFbm3CNLl6RuR7boVDULdmM4M4dvhDWUh4YvdjZ7NHU0dXRQVzLLNnTMFTTvN6U68kI0IyUiwiIChjMGhDN9cjI0ICSiwSN8kjM5QTOyEjM0IicfJye#4Xfd5nITBFVKJiOiMkIsISOx8idgMlSgQWYlJHcTJiOi8kI1tlOiQmcQJCLiYTMzQDNwAiMyITM5IDMyIiOiQncDJCLiAnauMXdpN6cl5mLqwybp9ie4lGbit6YhR7cuoiI0IyctRkIsIyUVl4QTVUTiojIh94QiwiI7UzN5UjM8IDN9gTN5EDNiojIklkIs4XXi86bpRXYy3mYhxGbvNkIsISSBJCLiQnchh6QhRXYEJCLiQXZlh6U4J7bwVmUiwiI4VWZoNFd49WYHJCLiUGbiFGV43mdpBlIbpjInxmZiwSZzxWYmpjIyNHZisnOiwmbBJye0ICRiwiI34TUQhVQqdEWQRjb7ZVdxElTxAzQ4YXU7YXbmpWUvhWVJF5axBHTSd6cBN6Umh4Li3WaShjZ4lGSuFDThhPcwJ';
 GC.Spread.Common.CultureManager.culture("ja-jp");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,16 +67,14 @@ const initSheet = (spread) => {
   sheet.getCell(8, 3).watermark(watermark2);
 
   // クエリの設定（SJS.AI.QUERY関数の動作確認用）
-  const watermark3 = '=SJS.AI.QUERY("最も普及しているjavascriptフレームワークは？","世界")';
+  const watermark3 = '=SJS.AI.QUERY("このことわざの意味を簡潔に教えてください",B9:B12)';
   sheet.setValue(13, 1, "任意のクエリ");
   sheet.getCell(13, 1).setStyle(headerStyle);
-  sheet.getRange(13, 1, 2, 3).setBorder(
+  sheet.getRange(13, 1, 5, 3).setBorder(
     new GC.Spread.Sheets.LineBorder("royalblue", spreadNS.LineStyle.medium),
     { outline: true }
   );
   sheet.addSpan(13, 1, 1, 3, spreadNS.SheetArea.viewport);
-  sheet.addSpan(14, 1, 1, 3, spreadNS.SheetArea.viewport);
-  sheet.getCell(14, 1).hAlign(spreadNS.HorizontalAlign.center);
   sheet.getCell(14, 1).watermark(watermark3);
 }
 

@@ -47,7 +47,7 @@ app.post("/api/queryAI", async (req, res) => {
     const body = req.body;
     const model = body.model || defaultModel;
     const { contents } = convertMessages(body.messages || []);
-
+    console.log(contents);
     const params = {
       model,
       contents,
